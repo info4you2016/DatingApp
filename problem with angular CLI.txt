@@ -1,2 +1,0 @@
-1- go to terminal and type
-2- npm install rxjs@6.0.0 --save
