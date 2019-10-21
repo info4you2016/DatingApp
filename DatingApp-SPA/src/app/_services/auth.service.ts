@@ -15,10 +15,11 @@ export class AuthService {
 
   login(model: any) {
     return this.http
-    .post(this.baseUrl + 'login', model, this.requestOptions())
+    .post(this.baseUrl + 'login', model)
     .pipe(
       map((response: any) => {
         const user = response;
+        console.log(user);
         if (user) {
           localStorage.setItem('token', user.token);
           this.decodedToken = this.jwtHelper.decodeToken(user.token);
@@ -31,8 +32,7 @@ export class AuthService {
   register(model: any) {
     return this.http.post(
       this.baseUrl + 'register',
-       model,
-       this.requestOptions());
+       model);
   }
 
   loggedIn() {

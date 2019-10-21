@@ -37,8 +37,8 @@ namespace DatingApp.API.Data
                  {
                      if (computedHash[i] != passwordHash[i]) return false;
                  }
-                 return true;
             }
+            return true;
         }
 
         public async Task<User> Register(User user, string password)
