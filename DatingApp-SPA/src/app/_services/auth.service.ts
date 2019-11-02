@@ -29,7 +29,6 @@ export class AuthService {
     .pipe(
       map((response: any) => {
         const user = response;
-        console.log(user);
         if (user) {
           localStorage.setItem('token', user.token);
           localStorage.setItem('user', JSON.stringify(user.user));
@@ -41,10 +40,10 @@ export class AuthService {
     );
   }
 
-  register(model: any) {
+  register(user: User) {
     return this.http.post(
       this.baseUrl + 'register',
-       model);
+      user);
   }
 
   loggedIn() {
